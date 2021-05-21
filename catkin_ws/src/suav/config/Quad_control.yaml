@@ -1,0 +1,35 @@
+joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+joint_motor_controller:
+    type: velocity_controllers/JointGroupVelocityController
+    joints: 
+        - joint_rotor_1
+        - joint_rotor_2
+        - joint_rotor_3
+        - joint_rotor_4
+    gains:
+        - joint_rotor_1: {p: 10000, i: 1, d: 1000}
+        - joint_rotor_2: {p: 10000, i: 1, d: 1000}
+        - joint_rotor_3: {p: 10000, i: 1, d: 1000}
+        - joint_rotor_4: {p: 10000, i: 1, d: 1000}
+        
+joint_wing_controller:
+    type: position_controllers/JointGroupPositionController
+    joints: 
+        - joint_0_to_1
+        - joint_0_to_2
+        - joint_2_to_3
+
+# The block below invalidates the model if we uncomment, error finding pid is ok 
+#gazebo_ros_control:
+#    pid_gains:
+#        joint_rotor_1: {p: 10000, i: 1, d: 1000}
+#        joint_rotor_2: {p: 10000, i: 1, d: 1000}
+#        joint_rotor_3: {p: 10000, i: 1, d: 1000}
+#        joint_rotor_4: {p: 10000, i: 1, d: 1000}
+#        joint_0_to_1: {p: 100, i: 0, d: 0}
+#        joint_0_to_2: {p: 100, i: 0, d: 0}
+#        joint_2_to_3: {p: 100, i: 0, d: 0}
+

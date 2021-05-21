@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<robot>
+
+	<!-- ================================= -->
+	<!-- Define Gazebo tags for every link -->
+
+	<!-- ================================= -->
+	<!-- Define the lift-Drag plugin -->
+	
+
+	<!-- The command must be +-+- format inside "data: []" -->
+	<!--<gazebo>
+		<plugin name="quad_prop4" filename="libLiftDragPlugin.so">
+			<a0>0.1</a0>
+			<cla>0.1</cla>
+			<cda>0.01</cda>
+			<cma>0.0</cma>
+			<alpha_stall>0.2</alpha_stall>
+			<cla_stall>-0.2</cla_stall>
+			<cda_stall>1.0</cda_stall>
+			<cma_stall>0.0</cma_stall>
+			<cp>0 0.5 0</cp>
+			<area>0.762</area>
+			<air_density>1.2041</air_density>
+			<forward>1 0 0</forward>
+			<upward>0 0 1</upward>
+			<link_name>prop_back_left</link_name>
+			<control_joint>joint_back_left_prop</control_joint>
+		</plugin>
+	</gazebo>-->
+	
+	<!-- Load the gazebo_ros_control plugin -->
+	<gazebo>
+		<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+			<robotNameSpace>/Quad</robotNameSpace>
+			<robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+		</plugin>
+	</gazebo>
+	
+	<!-- ================================= -->
+	<!-- <gazebo>
+	  <plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
+		<updateRate>100.0</updateRate>
+		<robotNamespace>/</robotNamespace>
+		<leftFrontJoint>fl_joint</leftFrontJoint>
+		<rightFrontJoint>fr_joint</rightFrontJoint>
+		<leftRearJoint>bl_joint</leftRearJoint>
+		<rightRearJoint>br_joint</rightRearJoint>
+		<wheelSeparation>0.4</wheelSeparation>
+		<wheelDiameter>0.215</wheelDiameter>
+		<robotBaseFrame>base_link1</robotBaseFrame>
+		<torque>20</torque>
+		<topicName>cmd_vel</topicName>
+		<broadcastTF>false</broadcastTF>
+	  </plugin>
+	</gazebo> -->
+	

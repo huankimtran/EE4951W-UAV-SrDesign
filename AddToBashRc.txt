@@ -1,0 +1,6 @@
+source /opt/ros/melodic/setup.bash
+export GAAS_PATH=~/Desktop/Working/GAAS
+source ~/catkin_ws/src/Firmware/Tools/setup_gazebo.bash ~/catkin_ws/src/Firmware/ ~/catkin_ws/src/Firmware/build/posix_sitl_default
+export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:~/catkin_ws/src/Firmware
+export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:~/catkin_ws/src/Firmware/Tools/sitl_gazebo
+export GAZEBO_MODEL_PATH=:/home/uav/catkin_ws/src/Firmware/Tools/sitl_gazebo/models:$GAAS_PATH/simulator/models

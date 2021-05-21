@@ -1,0 +1,762 @@
+<?xml version="1.0"?>
+<robot name="Quad">
+
+  <material name="grey">
+    <color rgba="0.5 0.5 0.5 1"/>
+  </material>
+
+  <material name="green">
+    <color rgba="0 0.8 0 1"/>
+  </material>
+
+  <material name="purple">
+    <color rgba="0.8 0 0.8 1"/>
+  </material>
+
+  <!--wing sections are base link, body_1, body_2, body_3 in that order, and each have and associated elevon-->
+  <link name= "dummy"/>
+
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <box size=" 1.0 0.1 0.25"/>
+      </geometry>
+      <origin xyz = "0.5  -0.05 -.125"/>
+      <material name = "purple"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size=" 1.0 0.1 0.2"/>
+      </geometry>
+      <origin xyz = "0.5  -0.05 -.1" />
+    </collision>
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx="0.05" ixy="0.0" ixz="0.0" iyy="0.05" iyz="0.0" izz="0.05"/>
+      <origin xyz="0.5 -0.05 -.125" />
+    </inertial>
+  </link>
+
+  <joint name="dummy_link" type="fixed">
+    <parent link="dummy"/>
+    <child link="base_link"/>
+  </joint>
+
+  <link name="body_1">
+    <visual>
+      <geometry>
+        <box size="1.0 0.1 0.25"/>
+      </geometry>
+      <origin xyz = "0.5 -0.05  -.125" />
+      <material name = "grey"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size=" 1.0 0.1  0.2"/>
+      </geometry>
+      <origin xyz = "0.5  -0.05 -.1" />
+    </collision>
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx="0.05" ixy="0.0" ixz="0.0" iyy="0.05" iyz="0.0" izz="0.05"/>
+      <origin xyz="0.5 -0.05 -.125" />
+    </inertial>
+  </link>
+
+  <link name="body_2">
+    <visual>
+      <geometry>
+        <box size="1.0 0.1 0.25"/>
+      </geometry>
+      <origin xyz = "-0.5 -0.05 -.125" />
+      <material name = "grey"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="1.0 0.1 0.2"/>
+      </geometry>
+      <origin xyz = "-0.5  -0.05 -.1" />
+    </collision>
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx="0.05" ixy="0.0" ixz="0.0" iyy="0.05" iyz="0.0" izz="0.05"/>
+      <origin xyz="-0.5 -0.05 -.125" />
+    </inertial>
+  </link>
+
+  <link name="body_3">
+    <visual>
+      <geometry>
+        <box size="1.0 0.1 0.25"/>
+      </geometry>
+      <origin xyz = "-0.5 -0.05 -.125" />
+      <material name = "grey"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size=" 1.0 0.1 0.2"/>
+      </geometry>
+      <origin xyz = "-0.5  -0.05 -.1" />
+    </collision>
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx="0.05" ixy="0.0" ixz="0.0" iyy="0.05" iyz="0.0" izz="0.05"/>
+      <origin xyz="-0.5 -0.05 -.125" />
+    </inertial>
+  </link>
+
+  <link name="elevon_0">
+    <visual>
+      <geometry>
+        <box size="1.0 0.1 0.2"/>
+      </geometry>
+      <origin xyz = "0.5 0 -.1" />
+      <material name = "grey"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size=" 1.0 0.1 0.2"/>
+      </geometry>
+      <origin xyz = "0.5 0 -.1 " />
+    </collision>
+    <inertial>
+      <mass value="0.1"/>
+      <inertia ixx="0.005" ixy="0.0" ixz="0.0" iyy="0.005" iyz="0.0" izz="0.005"/>
+      <origin xyz="0.5 0 -.1" />
+    </inertial>
+  </link>
+
+  <link name="elevon_1">
+    <visual>
+      <geometry>
+        <box size="1.0 0.1 0.2"/>
+      </geometry>
+      <origin xyz = "0.5 0 -.1" />
+      <material name = "grey"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size=" 1.0 0.1 0.2"/>
+      </geometry>
+      <origin xyz = "0.5 0 -.1" />
+    </collision>
+    <inertial>
+      <mass value="0.1"/>
+      <inertia ixx="0.005" ixy="0.0" ixz="0.0" iyy="0.005" iyz="0.0" izz="0.005"/>
+      <origin xyz="0.5 0 -0.1" />
+    </inertial>
+  </link>
+
+  <link name="elevon_2">
+    <visual>
+      <geometry>
+        <box size="1.0 0.1 0.2"/>
+      </geometry>
+      <origin xyz = "-0.5 0 -.1" />
+      <material name = "grey"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size=" 1.0 0.1 0.2"/>
+      </geometry>
+      <origin xyz = "-0.5 0 -.1" />
+    </collision>
+    <inertial>
+      <mass value="0.1"/>
+      <inertia ixx="0.005" ixy="0.0" ixz="0.0" iyy="0.005" iyz="0.0" izz="0.005"/>
+      <origin xyz="-0.5 0 -.1" />
+    </inertial>
+  </link>
+
+  <link name="elevon_3">
+    <visual>
+      <geometry>
+        <box size="1.0 0.1 0.2"/>
+      </geometry>
+      <origin xyz = "-0.5 0 -.1" />
+      <material name = "grey"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size=" 1.0 0.1 0.2"/>
+      </geometry>
+      <origin xyz = "-0.5 0 -.1" />
+    </collision>
+    <inertial>
+      <mass value="0.1"/>
+      <inertia ixx="0.005" ixy="0.0" ixz="0.0" iyy="0.005" iyz="0.0" izz="0.005"/>
+      <origin xyz="-0.5 0 -.1" />
+    </inertial>
+  </link>
+
+  <link name="rotor_1">
+    <visual>
+      <geometry>
+        <box size="0.5 0.05 0.01"/>
+      </geometry>
+      <origin xyz = "0 0 0" />
+      <material name = "green"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size=" 0.5 0.05 0.01"/>
+      </geometry>
+      <origin xyz = "0.0 0 0" />
+    </collision>
+    <inertial>
+      <mass value="0.01"/>
+      <inertia ixx="0.0005" ixy="0.0" ixz="0.0" iyy="0.0005" iyz="0.0" izz="0.0005"/>
+      <origin xyz="0 0 0" />
+    </inertial>
+  </link>
+
+  <link name="rotor_2">
+    <visual>
+      <geometry>
+        <box size="0.5 0.05 0.01"/>
+      </geometry>
+      <origin xyz = "0 0 0" />
+      <material name = "green"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size=" 0.5 0.05 0.01"/>
+      </geometry>
+      <origin xyz = "0.0 0 0" />
+    </collision>
+    <inertial>
+      <mass value="0.01"/>
+      <inertia ixx="0.0005" ixy="0.0" ixz="0.0" iyy="0.0005" iyz="0.0" izz="0.0005"/>
+      <origin xyz="0 0 0" />
+    </inertial>
+  </link>
+
+  <link name="rotor_3">
+    <visual>
+      <geometry>
+        <box size="0.5 0.05 0.01"/>
+      </geometry>
+      <origin xyz = "0 0 0" />
+      <material name = "green"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size=" 0.5 0.05 0.01"/>
+      </geometry>
+      <origin xyz = "0.0 0 0" />
+    </collision>
+    <inertial>
+      <mass value="0.01"/>
+      <inertia ixx="0.0005" ixy="0.0" ixz="0.0" iyy="0.0005" iyz="0.0" izz="0.0005"/>
+      <origin xyz="0 0 0" />
+    </inertial>
+  </link>
+
+  <link name="rotor_4">
+    <visual>
+      <geometry>
+        <box size="0.5 0.05 0.01"/>
+      </geometry>
+      <origin xyz = "0 0 0" />
+      <material name = "green"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size=" 0.5 0.05 0.01"/>
+      </geometry>
+      <origin xyz = "0.0 0 0" />
+    </collision>
+    <inertial>
+      <mass value="0.01"/>
+      <inertia ixx="0.0005" ixy="0.0" ixz="0.0" iyy="0.0005" iyz="0.0" izz="0.0005"/>
+      <origin xyz="0 0 0" />
+    </inertial>
+  </link>
+
+
+  <joint name="joint_0_to_1" type="revolute">
+    <axis xyz="0 0 1"/>
+    <limit effort="1000.0" lower="0" upper="1.57079" velocity="10.0"/>
+    <origin rpy= "0 0 0 " xyz="1.0 0.0 0.0"/>
+    <parent link="base_link"/>
+    <child link="body_1"/>
+  </joint>
+
+  <joint name="joint_0_to_2" type="revolute">
+    <parent link="base_link"/>
+    <child link="body_2"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="1000.0" lower="-1.57079" upper="0" velocity="10.0"/>
+    <origin rpy= "0 0 0 " xyz="0.0 0.0 0.0"/>
+  </joint>
+
+  <!--
+  <transmission name="joint_0_to_2_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="$0_to_2_act">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="joint_0_to_2">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+  -->
+
+  <joint name="joint_2_to_3" type="revolute">
+    <parent link="body_2"/>
+    <child link="body_3"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="1000.0" lower="-1.57079" upper="0" velocity="10.0"/>
+    <origin rpy= "0 0 0 " xyz="-1.0 0.0 0.0"/>
+  </joint>
+
+  <!--
+  <transmission name="joint_2_to_3_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="$2_to_3_act">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="joint_2_to_3">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+  -->
+
+  <joint name="0_to_elevon" type="revolute">
+    <parent link="base_link"/>
+    <child link="elevon_0"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="1000.0" lower="0" upper="0" velocity="0.5"/>
+    <origin rpy= "0 0 0 " xyz="0.0 -0.05 -0.25"/>  
+  </joint>
+
+  <!--
+  <transmission name="0_to_elevon_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="$0_to_elevon_act">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="0_to_elevon">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+  -->
+
+  <joint name="1_to_elevon" type="revolute">
+    <parent link="body_1"/>
+    <child link="elevon_1"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="1000.0" lower="0" upper="0" velocity="0.5"/>
+    <origin rpy= "0 0 0 " xyz="0.0 -0.05 -0.25"/>  
+  </joint>
+
+  <!--
+  <transmission name="1_to_elevon_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="$1_to_elevon_act">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="1_to_elevon">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+  -->
+
+  <joint name="2_to_elevon" type="revolute">
+    <parent link="body_2"/>
+    <child link="elevon_2"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="1000.0" lower="0" upper="0" velocity="0.5"/>
+    <origin rpy= "0 0 0 " xyz="0.0 -0.05 -0.25"/>  
+  </joint>
+
+  <!--
+  <transmission name="2_to_elevon_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="$2_to_elevon_act">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="2_to_elevon">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+  -->
+
+  <joint name="3_to_elevon" type="revolute">
+    <parent link="body_3"/>
+    <child link="elevon_3"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="1000.0" lower="0" upper="0" velocity="0.5"/>
+    <origin rpy= "0 0 0 " xyz="0.0 -0.05 -0.25 "/>  
+  </joint>
+
+  <!--
+  <transmission name="3_to_elevon_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="$3_to_elevon_act">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="3_to_elevon">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+  -->
+
+  <joint name="joint_rotor_1" type="continuous">
+    <parent link="body_3"/>
+    <child link="rotor_1"/>
+    <axis xyz="0 0 1"/>
+    <origin rpy= "0 0 0 " xyz="-0.5 -0.05 0.0"/>
+  </joint>
+
+  <transmission name="motor_1" >
+		<type>transmission_interface/SimpleTransmission</type>	
+		<joint name="joint_rotor_1">
+			<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="BLDC_motor1">
+			<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+			<mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>
+
+  <joint name="joint_rotor_2" type="continuous">
+    <parent link="body_2"/>
+    <child link="rotor_2"/>
+    <axis xyz="0 0 1"/>
+    <origin rpy= "0 0 0 " xyz="-0.5 -0.05 0.0"/>
+  </joint>
+
+  <transmission name="motor_2" >
+		<type>transmission_interface/SimpleTransmission</type>	
+		<joint name="joint_rotor_2">
+			<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="BLDC_motor2">
+			<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+			<mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>
+
+  <joint name="joint_rotor_3" type="continuous">
+    <parent link="base_link"/>
+    <child link="rotor_3"/>
+    <axis xyz="0 0 1"/>
+    <origin rpy= "0 0 0 " xyz="0.5 -0.05 0.0"/>
+  </joint>
+
+  <transmission name="rotor_3_joint" >
+		<type>transmission_interface/SimpleTransmission</type>	
+		<joint name="joint_rotor_3">
+			<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="BLDC_motor3">
+			<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+			<mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>
+
+  <joint name="joint_rotor_4" type="continuous">
+    <parent link="body_1"/>
+    <child link="rotor_4"/>
+    <axis xyz="0 0 1"/>
+    <origin rpy= "0 0 0 " xyz="0.5 -0.05 0.0"/>
+  </joint>
+
+  <transmission name="motor_4" >
+		<type>transmission_interface/SimpleTransmission</type>	
+		<joint name="joint_rotor_4">
+			<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="BLDC_motor4">
+			<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+			<mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>
+
+  <transmission name="joint_0_to_1_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="$0_to_1_act">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="joint_0_to_1">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+
+  <transmission name="joint_0_to_2_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="$0_to_2_act">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="joint_0_to_2">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+
+  <transmission name="joint_2_to_3_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="$2_to_3_act">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="joint_2_to_3">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/Quad</robotNamespace>
+    </plugin>
+  </gazebo>
+
+
+  <gazebo>
+		<!-- Provide a Positive Velocity -->
+		<plugin name="quad_prop1" filename="libLiftDragPlugin.so">
+			<a0>0.1</a0>
+			<cla>0.5</cla>
+			<cda>0.01</cda>
+			<cma>0.0</cma>
+			<alpha_stall>0.2</alpha_stall>
+			<cla_stall>-0.2</cla_stall>
+			<cda_stall>1.0</cda_stall>
+			<cma_stall>0.0</cma_stall>
+			<cp>0 0.5 0</cp>
+			<area>1.762</area>
+			<air_density>1.2041</air_density>
+			<forward>1 0 0</forward>
+			<upward>0 0 1</upward>
+			<link_name>rotor_1</link_name>
+			<control_joint>joint_rotor_1</control_joint>
+		</plugin>
+	</gazebo>
+	
+	<gazebo>
+		<!-- Provide a Negative Velocity -->
+		<plugin name="quad_prop2" filename="libLiftDragPlugin.so">
+			<a0>0.1</a0>
+			<cla>0.5</cla>
+			<cda>0.01</cda>
+			<cma>0.0</cma>
+			<alpha_stall>0.2</alpha_stall>
+			<cla_stall>-0.2</cla_stall>
+			<cda_stall>1.0</cda_stall>
+			<cma_stall>0.0</cma_stall>
+			<cp>0 0.5 0</cp>
+			<area>1.762</area>
+			<air_density>1.2041</air_density>
+			<forward>1 0 0</forward>
+			<upward>0 0 -1</upward>
+			<link_name>rotor_2</link_name>
+			<control_joint>joint_rotor_2</control_joint>
+		</plugin>
+	</gazebo>
+	
+	<gazebo>
+		<!-- Provide a positive Velocity -->
+		<plugin name="quad_prop3" filename="libLiftDragPlugin.so">
+			<a0>0.1</a0>
+			<cla>0.5</cla>
+			<cda>0.01</cda>
+			<cma>0.0</cma>
+			<alpha_stall>0.2</alpha_stall>
+			<cla_stall>-0.2</cla_stall>
+			<cda_stall>1.0</cda_stall>
+			<cma_stall>0.0</cma_stall>
+			<cp>0 0.5 0</cp>
+			<area>1.762</area>
+			<air_density>1.2041</air_density>
+			<forward>1 0 0</forward>
+			<upward>0 0 1</upward>
+			<link_name>rotor_3</link_name>
+			<control_joint>joint_rotor_3</control_joint>
+		</plugin>
+	</gazebo>
+	
+	<gazebo>
+		<!-- Provide a negative Velocity -->
+		<plugin name="quad_prop4" filename="libLiftDragPlugin.so">
+			<a0>0.1</a0>
+			<cla>0.5</cla>
+			<cda>0.01</cda>
+			<cma>0.0</cma>
+			<alpha_stall>0.2</alpha_stall>
+			<cla_stall>-0.2</cla_stall>
+			<cda_stall>1.0</cda_stall>
+			<cma_stall>0.0</cma_stall>
+			<cp>0 0.5 0</cp>
+			<area>1.762</area>
+			<air_density>1.2041</air_density>
+			<forward>1 0 0</forward>
+			<upward>0 0 -1</upward>
+			<link_name>rotor_4</link_name>
+			<control_joint>joint_rotor_4</control_joint>
+		</plugin>
+	</gazebo>
+
+  <gazebo>
+		<!-- Provide a negative Velocity -->
+		<plugin name="wing_0" filename="libLiftDragPlugin.so">
+			<a0>0.1</a0>
+			<cla>0.5</cla>
+			<cda>0.01</cda>
+			<cma>0.0</cma>
+			<alpha_stall>0.2</alpha_stall>
+			<cla_stall>-0.2</cla_stall>
+			<cda_stall>1.0</cda_stall>
+			<cma_stall>0.0</cma_stall>
+			<cp>0.5 0 0</cp>
+			<area>1.762</area>
+			<air_density>1.2041</air_density>
+			<forward>0 0 1</forward>
+			<upward>0 -1 0</upward>
+			<link_name>base_link</link_name>
+		</plugin>
+	</gazebo>
+
+  <gazebo>
+		<!-- Provide a negative Velocity -->
+		<plugin name="elevon_0" filename="libLiftDragPlugin.so">
+			<a0>0.1</a0>
+			<cla>0.5</cla>
+			<cda>0.01</cda>
+			<cma>0.0</cma>
+			<alpha_stall>0.2</alpha_stall>
+			<cla_stall>-0.2</cla_stall>
+			<cda_stall>1.0</cda_stall>
+			<cma_stall>0.0</cma_stall>
+			<cp>0.5 0 0</cp>
+			<area>1.762</area>
+			<air_density>1.2041</air_density>
+			<forward>0 0 1</forward>
+			<upward>0 -1 0</upward>
+			<link_name>elevon_0</link_name>
+		</plugin>
+	</gazebo>
+
+  <gazebo>
+		<!-- Provide a negative Velocity -->
+		<plugin name="wing_1" filename="libLiftDragPlugin.so">
+			<a0>0.1</a0>
+			<cla>0.5</cla>
+			<cda>0.01</cda>
+			<cma>0.0</cma>
+			<alpha_stall>0.2</alpha_stall>
+			<cla_stall>-0.2</cla_stall>
+			<cda_stall>1.0</cda_stall>
+			<cma_stall>0.0</cma_stall>
+			<cp>0.5 0 0</cp>
+			<area>1.762</area>
+			<air_density>1.2041</air_density>
+			<forward>0 0 1</forward>
+			<upward>0 -1 0</upward>
+			<link_name>body_1</link_name>
+		</plugin>
+	</gazebo>
+
+  <gazebo>
+		<!-- Provide a negative Velocity -->
+		<plugin name="elevon_1" filename="libLiftDragPlugin.so">
+			<a0>0.1</a0>
+			<cla>0.5</cla>
+			<cda>0.01</cda>
+			<cma>0.0</cma>
+			<alpha_stall>0.2</alpha_stall>
+			<cla_stall>-0.2</cla_stall>
+			<cda_stall>1.0</cda_stall>
+			<cma_stall>0.0</cma_stall>
+			<cp>0.5 0 0</cp>
+			<area>1.762</area>
+			<air_density>1.2041</air_density>
+			<forward>0 0 1</forward>
+			<upward>0 -1 0</upward>
+			<link_name>elevon_1</link_name>
+		</plugin>
+	</gazebo>
+
+  <gazebo>
+		<!-- Provide a negative Velocity -->
+		<plugin name="wing_2" filename="libLiftDragPlugin.so">
+			<a0>0.1</a0>
+			<cla>0.5</cla>
+			<cda>0.01</cda>
+			<cma>0.0</cma>
+			<alpha_stall>0.2</alpha_stall>
+			<cla_stall>-0.2</cla_stall>
+			<cda_stall>1.0</cda_stall>
+			<cma_stall>0.0</cma_stall>
+			<cp>-0.5 0 0</cp>
+			<area>1.762</area>
+			<air_density>1.2041</air_density>
+			<forward>0 0 1</forward>
+			<upward>0 -1 0</upward>
+			<link_name>body_2</link_name>
+		</plugin>
+	</gazebo>
+
+  <gazebo>
+		<!-- Provide a negative Velocity -->
+		<plugin name="elevon_2" filename="libLiftDragPlugin.so">
+			<a0>0.1</a0>
+			<cla>0.5</cla>
+			<cda>0.01</cda>
+			<cma>0.0</cma>
+			<alpha_stall>0.2</alpha_stall>
+			<cla_stall>-0.2</cla_stall>
+			<cda_stall>1.0</cda_stall>
+			<cma_stall>0.0</cma_stall>
+			<cp>-0.5 0 0</cp>
+			<area>1.762</area>
+			<air_density>1.2041</air_density>
+			<forward>0 0 1</forward>
+			<upward>0 -1 0</upward>
+			<link_name>elevon_2</link_name>
+		</plugin>
+	</gazebo>
+
+  <gazebo>
+		<!-- Provide a negative Velocity -->
+		<plugin name="wing_3" filename="libLiftDragPlugin.so">
+			<a0>0.1</a0>
+			<cla>0.5</cla>
+			<cda>0.01</cda>
+			<cma>0.0</cma>
+			<alpha_stall>0.2</alpha_stall>
+			<cla_stall>-0.2</cla_stall>
+			<cda_stall>1.0</cda_stall>
+			<cma_stall>0.0</cma_stall>
+			<cp>-0.5 0 0</cp>
+			<area>1.762</area>
+			<air_density>1.2041</air_density>
+			<forward>0 0 1</forward>
+			<upward>0 -1 0</upward>
+			<link_name>body_3</link_name>
+		</plugin>
+	</gazebo>
+
+  <gazebo>
+		<!-- Provide a negative Velocity -->
+		<plugin name="elevon_3" filename="libLiftDragPlugin.so">
+			<a0>0.1</a0>
+			<cla>0.5</cla>
+			<cda>0.01</cda>
+			<cma>0.0</cma>
+			<alpha_stall>0.2</alpha_stall>
+			<cla_stall>-0.2</cla_stall>
+			<cda_stall>1.0</cda_stall>
+			<cma_stall>0.0</cma_stall>
+			<cp>-0.5 0 0</cp>
+			<area>1.762</area>
+			<air_density>1.2041</air_density>
+			<forward>0 0 1</forward>
+			<upward>0 -1 0</upward>
+			<link_name>elevon_3</link_name>
+		</plugin>
+	</gazebo>
+
+
+</robot>

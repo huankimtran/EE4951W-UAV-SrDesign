@@ -1,0 +1,25 @@
+<?xml_version="1.0" ?>
+<sdf version="1.4">
+    <world name="default">
+        <scene>
+            <ambient>0.0 0.0 0.0 1.0</ambient>
+            <shadows>0</shadows>
+        </scene>
+        <include>
+            <uri>model://sun</uri>
+        </include>
+        <include>
+            <uri>model://ground_plane</uri>
+        </include>
+        <include>
+            <uri>model://construction_cone</uri>
+            <pose>3 0 0 0 0 0</pose>
+        </include>
+        <!-- Road portion-->
+        <road name="road">
+            <width>100</width>
+            <point>-100 0 0.001</point>
+            <point>100 0 0.001</point>
+        </road>		
+    </world>
+</sdf>

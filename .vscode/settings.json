@@ -1,0 +1,4 @@
+{
+    "cmake.configureOnOpen": true,
+    "python.pythonPath": "/usr/bin/python3"
+}

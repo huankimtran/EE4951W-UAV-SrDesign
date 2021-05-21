@@ -1,0 +1,4 @@
+<launch>
+    <node name="ps4_terminal" pkg="uav_px4_sim" type="px4_terminal.py" output="screen"></node>
+    <node name="client" pkg="uav_px4_sim" type="client.py" output="screen"></node>
+</launch>
